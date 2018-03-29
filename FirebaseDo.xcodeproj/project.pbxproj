@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		964689A9EBCC293D393885E3 /* Pods_FirebaseDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D651B1AAF9BFC6E7F5D2B53C /* Pods_FirebaseDo.framework */; };
+		C460C9DF206B362000520327 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C460C9DE206B362000520327 /* Task.swift */; };
 		C48B100C1F0AF8E6001F0E66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B100B1F0AF8E6001F0E66 /* AppDelegate.swift */; };
-		C48B100E1F0AF8E6001F0E66 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48B100D1F0AF8E6001F0E66 /* HomeViewController.swift */; };
 		C48B10111F0AF8E6001F0E66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48B100F1F0AF8E6001F0E66 /* Main.storyboard */; };
 		C48B10131F0AF8E6001F0E66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48B10121F0AF8E6001F0E66 /* Assets.xcassets */; };
 		C48B10161F0AF8E6001F0E66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48B10141F0AF8E6001F0E66 /* LaunchScreen.storyboard */; };
@@ -20,9 +20,9 @@
 /* Begin PBXFileReference section */
 		65E0D9A6210C832D870DE1F6 /* Pods-FirebaseDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseDo/Pods-FirebaseDo.debug.xcconfig"; sourceTree = "<group>"; };
 		7661CD9ABEA1D29DF09B7FFD /* Pods-FirebaseDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseDo/Pods-FirebaseDo.release.xcconfig"; sourceTree = "<group>"; };
+		C460C9DE206B362000520327 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		C48B10081F0AF8E6001F0E66 /* FirebaseDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48B100B1F0AF8E6001F0E66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C48B100D1F0AF8E6001F0E66 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C48B10101F0AF8E6001F0E66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C48B10121F0AF8E6001F0E66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C48B10151F0AF8E6001F0E66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -85,8 +85,8 @@
 			children = (
 				C4D3E4981F1C6508000DE13F /* FirebaseDo.entitlements */,
 				C48B100B1F0AF8E6001F0E66 /* AppDelegate.swift */,
-				C48B100D1F0AF8E6001F0E66 /* HomeViewController.swift */,
 				C48B101D1F0AFB5F001F0E66 /* MasterViewController.swift */,
+				C460C9DE206B362000520327 /* Task.swift */,
 				C48B100F1F0AF8E6001F0E66 /* Main.storyboard */,
 				C48B10121F0AF8E6001F0E66 /* Assets.xcassets */,
 				C48B10141F0AF8E6001F0E66 /* LaunchScreen.storyboard */,
@@ -180,9 +180,30 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FirebaseDo/Pods-FirebaseDo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -195,9 +216,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FirebaseDo/Pods-FirebaseDo-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -210,13 +238,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FirebaseDo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -226,8 +257,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C48B100E1F0AF8E6001F0E66 /* HomeViewController.swift in Sources */,
 				C48B100C1F0AF8E6001F0E66 /* AppDelegate.swift in Sources */,
+				C460C9DF206B362000520327 /* Task.swift in Sources */,
 				C48B101E1F0AFB5F001F0E66 /* MasterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +388,7 @@
 				CODE_SIGN_ENTITLEMENTS = FirebaseDo/FirebaseDo.entitlements;
 				DEVELOPMENT_TEAM = UU98N6FWB5;
 				INFOPLIST_FILE = FirebaseDo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.doronkatz.FirebaseDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -372,6 +404,7 @@
 				CODE_SIGN_ENTITLEMENTS = FirebaseDo/FirebaseDo.entitlements;
 				DEVELOPMENT_TEAM = UU98N6FWB5;
 				INFOPLIST_FILE = FirebaseDo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.doronkatz.FirebaseDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
