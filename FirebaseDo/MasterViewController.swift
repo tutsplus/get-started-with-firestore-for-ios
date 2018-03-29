@@ -88,11 +88,10 @@ extension MasterViewController{
     
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath) {
-        
-        let collection = Firestore.firestore().collection("Tasks")
-        
+
         let item = tasks[indexPath.row]
-        
+        let collection = Firestore.firestore().collection("Tasks")
+
         collection.document(item.id).updateData([
             "done": !item.done,
             ]) { err in
@@ -106,23 +105,57 @@ extension MasterViewController{
         tableView.reloadRows(at: [indexPath], with: .automatic)
         
     }
-    // [1]
+
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    // [2]
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//
-//        if (editingStyle == .delete){
-//            let item = remindersList[indexPath.row]
-//            try! self.realm.write({
-//                self.realm.delete(item)
-//            })
-//
-//            tableView.deleteRows(at:[indexPath], with: .automatic)
-//
-//        }
-//
-//    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+
+        if (editingStyle == .delete){
+            let item = tasks[indexPath.row]
+            _ = Firestore.firestore().collection("Tasks").document(item.id).delete()
+        }
+
+    }
+}
+
+//MARK: AddTask method
+extension MasterViewController{
+    @IBAction func addTask(_ sender: Any) {
+        
+        let alertVC : UIAlertController = UIAlertController(title: "New Task", message: "What do you want to remember?", preferredStyle: .alert)
+        
+        alertVC.addTextField { (UITextField) in
+            
+        }
+        
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .destructive, handler: nil)
+        
+        alertVC.addAction(cancelAction)
+        
+        //Alert action closure
+        let addAction = UIAlertAction.init(title: "Add", style: .default) { (UIAlertAction) -> Void in
+            
+            let textFieldReminder = (alertVC.textFields?.first)! as UITextField
+            
+            let db = Firestore.firestore()
+            var docRef: DocumentReference? = nil
+            docRef = db.collection("Tasks").addDocument(data: [
+                "name": textFieldReminder.text ?? "empty task",
+                "done": false
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("Document added with ID: \(docRef!.documentID)")
+                }
+            }
+            
+        }
+    
+        alertVC.addAction(addAction)
+        present(alertVC, animated: true, completion: nil)
+        
+    }
 }

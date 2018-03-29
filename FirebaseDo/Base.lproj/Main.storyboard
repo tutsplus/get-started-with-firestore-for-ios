@@ -59,7 +59,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tasks" id="P3F-4G-ba7">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="HEI-5A-A3B"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="HEI-5A-A3B">
+                            <connections>
+                                <action selector="addTask:" destination="12U-fH-cRc" id="b8d-9t-MpP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
